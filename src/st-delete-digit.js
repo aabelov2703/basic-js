@@ -11,7 +11,10 @@ import { NotImplementedError } from '../extensions/index.js';
  * For n = 152, the output should be 52
  *
  */
-export default function deleteDigit(/* n */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+export default function deleteDigit(n) {
+  let max = String(n).slice(1);
+  for (let i = 1; i < String(n).length; i++) {
+    if (max < String(n).replace(String(n)[i], '')) max = String(n).replace(String(n)[i], '')
+  }
+  return +max
 }
